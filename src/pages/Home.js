@@ -275,7 +275,7 @@ export default function Home() {
       setMessage({ text: '', type: '' });
       
       // Upload file to localStorage
-      const result = await storage.uploadFile(pdfFile);
+      await storage.uploadFile(pdfFile);
       
       // Update local state only after successful upload
       const updatedNotes = storage.getAllFiles();
@@ -320,15 +320,7 @@ export default function Home() {
     }
   }
 
-  function handleViewNote(note) {
-    try {
-      setSelectedNote(note);
-      // Instead of opening in a new window, we'll display in the content area
-    } catch (error) {
-      console.error('Error viewing note:', error);
-      setMessage({ text: 'Error viewing note', type: 'error' });
-    }
-  }
+  // Remove the unused handleViewNote function since we're using handleNoteSelect instead
 
   return (
     <Container>

@@ -36,7 +36,7 @@ const Nav = styled.nav`
     margin-left: 20px;
   }
 
-  a {
+  button {
     color: #333;
     font-weight: 500;
     padding: 5px 10px;
@@ -44,6 +44,9 @@ const Nav = styled.nav`
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
+    background: none;
+    border: none;
+    font-size: 16px;
     
     &:hover, &.active {
       background-color: #4a6fa5;
@@ -68,11 +71,10 @@ export default function Header({ onAdminClick }) {
       </Logo>
       <Nav>
         <ul>
-          <li><a href="#" className="active">Home</a></li>
           {currentUser && currentUser.isAdmin && (
-            <li><a onClick={onAdminClick}>Admin Panel</a></li>
+            <li><button onClick={onAdminClick}>Admin Panel</button></li>
           )}
-          <li><a onClick={handleLogout}>Logout</a></li>
+          <li><button onClick={handleLogout}>Logout</button></li>
         </ul>
       </Nav>
     </HeaderContainer>
